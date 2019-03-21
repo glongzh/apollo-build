@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+- docker
+
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y bzip2
+
+script:
+- bash download.sh
+- docker build -t glongzh/apollo-admin-server:v1.3.0 apollo-admin-server/
+- docker build -t glongzh/apollo-config-server:v1.3.0 apollo-config-server/
+- docker build -t glongzh/apollo-portal-server:v1.3.0 apollo-portal-server/
+
+deploy:
+  provider: script
+  script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && docker push glongzh/apollo-admin-server:v1.3.0 && docker push glongzh/apollo-config-server:v1.3.0 && docker push glongzh/apollo-portal-server:v1.3.0
+  on:
+    all_branches: true
+#    condition: "$TRAVIS_BRANCH =~ ^v[0-9]+\\.[0-9]+(\\.[0-9]+)?(-\\S*)?$"
