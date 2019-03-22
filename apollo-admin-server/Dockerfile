@@ -26,4 +26,4 @@ EXPOSE 8090
 
 # ENTRYPOINT ["sh", "/apollo-admin-server/entrypoint.sh"]
 
-CMD ["sh", "/apollo-admin-server/scripts/startup-kubernetes.sh"]
+ENTRYPOINT ["sh", "/apollo-admin-server/scripts/startup-kubernetes.sh"]
