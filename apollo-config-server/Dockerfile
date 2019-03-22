@@ -26,4 +26,4 @@ EXPOSE 8080
 
 # ENTRYPOINT ["sh", "/apollo-config-server/entrypoint.sh"]
 
-CMD ["/apollo-config-server/scripts/startup-kubernetes.sh"]
+CMD ["sh", "/apollo-config-server/scripts/startup-kubernetes.sh"]

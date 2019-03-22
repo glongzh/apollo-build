@@ -31,4 +31,4 @@ EXPOSE 8070
 
 # ENTRYPOINT ["sh", "/apollo-portal-server/entrypoint.sh"]
 
-CMD ["/apollo-portal-server/scripts/startup-kubernetes.sh"]
+CMD ["sh", "/apollo-portal-server/scripts/startup-kubernetes.sh"]
